@@ -16,7 +16,7 @@ items.each  do |part|
 end
 
 begin 
-  result = Mysql.new #'localhost', 'root', 'iamyourfather', 'parse_result'
+  result = Mysql.new #'localhost', 'user', 'password', 'parse_result'
   result.query("CREATE TABLE IF NOT EXISTS \
         Result(Title TEXT, Summary TEXT, Image TEXT, Date TEXT)")
   $titles.each {|title| result.query("INSERT INTO Result(Title) VALUES('#{title.text}')")}
