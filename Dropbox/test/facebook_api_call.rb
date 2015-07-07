@@ -10,7 +10,7 @@ user = graph.get_object('4?')
 pic = graph.get_object('4/picture?width=800&height=800&redirect=false')['data']
 
 begin
-  fb_api = Mysql.new #'localhost', 'user', 'password', 'test_ruby'
+  fb_api = Mysql.new 'localhost', 'user', 'password', 'test_ruby'
   fb_api.query("CREATE TABLE IF NOT EXISTS \
         Facebook_API(Name TEXT, Picture TEXT, Image TEXT)")
   fb_api.query("INSERT INTO Facebook_API(Name) VALUES('#{user['name']}')")
