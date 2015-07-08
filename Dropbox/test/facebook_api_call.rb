@@ -7,9 +7,9 @@ token = oauth.get_app_access_token
 graph = Koala::Facebook::API.new(token)
 
 begin
-  fb_api = Mysql2::Client.new(host:"localhost", username:"root", password:"iamyourfather")
+  fb_api = Mysql2::Client.new(host:"localhost", username:"root", password:"password")
   fb_api.query("CREATE DATABASE IF NOT EXISTS test_results")
-  fb_api = Mysql2::Client.new(host:"localhost", username:"root", password:"iamyourfather", database:"test_results")
+  fb_api = Mysql2::Client.new(host:"localhost", username:"root", password:"password", database:"test_results")
   fb_api.query("CREATE TABLE IF NOT EXISTS \
         Facebook_API(Name TEXT, Picture TEXT, Image TEXT)")
   fb_api.query("INSERT INTO Facebook_API(Name) VALUES('#{ graph.get_object('4?')['name']}')")
