@@ -16,9 +16,9 @@ items.each  do |part|
 end
 
 begin
-  result = Mysql2::Client.new(host:"localhost", username:"root", password:"iamyourfather")
+  result = Mysql2::Client.new(host:"localhost", username:"root", password:"password")
   result.query("CREATE DATABASE IF NOT EXISTS test_results")
-  result = Mysql2::Client.new(host:"localhost", username:"root", password:"iamyourfather", database:"test_results")
+  result = Mysql2::Client.new(host:"localhost", username:"root", password:"password", database:"test_results")
   result.query("CREATE TABLE IF NOT EXISTS \
         Result(Title TEXT, Summary TEXT, Image TEXT, Date TEXT)")
   $titles.each {|title| result.query("INSERT INTO Result(Title) VALUES('#{title.text.delete(?').tr ' ', ?_}')")}
